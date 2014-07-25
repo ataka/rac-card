@@ -13,6 +13,8 @@
 // Text
 @property (nonatomic) NSUInteger textNum;
 @property (nonatomic) NSMutableArray* textDeck;
+// Fail NSMutableArray
+@property (nonatomic) NSUInteger fNum;
 @end
 
 @implementation MAViewModel
@@ -25,6 +27,9 @@
         _textNum = 0;
         _textDeck = [@[] mutableCopy];
         self.textCount = [self textDeckCount];
+        // Fail NSMutableArray
+        _fNum = 0;
+        _fDeck = [@[] mutableCopy];
         return self;
     }
     return self;
@@ -48,6 +53,13 @@
 - (NSString *)textDeckCount
 {
     return [NSString stringWithFormat:@"%lu", self.textDeck.count];
+}
+
+#pragma mark - Fail NSMutableArray
+
+- (void)fAddCard
+{
+    [self.fDeck addObject:[[MACard alloc] initWithInteger:_fNum++]];
 }
 
 @end

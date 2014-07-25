@@ -13,4 +13,7 @@
 @property (nonatomic, copy) NSString* textCount;
 - (void)textAddCard;
 - (void)textRemoveCard;
+// Fail NSMutableArray
+@property (nonatomic) NSMutableArray* fDeck;
+- (void)fAddCard;
 @end

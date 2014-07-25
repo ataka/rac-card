@@ -11,9 +11,16 @@
 
 #import "MAViewModel.h"
 
+#import "MACard.h"
+
 @interface ViewController ()
+// Text
 @property (weak, nonatomic) IBOutlet UILabel *textCount;
 - (IBAction)textChangeCard:(id)sender;
+// Fail NSMutableArray
+@property (weak, nonatomic) IBOutlet UILabel *fCard;
+- (IBAction)fAddCard:(id)sender;
+// ViewModel
 @property (nonatomic) MAViewModel* viewModel;
 @end
 
@@ -35,6 +42,10 @@
 - (void)prepareRAC
 {
     RAC(self.textCount, text) = RACObserve(self.viewModel, textCount);
+    
+    RAC(self.fCard, text) = [RACObserve(self.viewModel, fDeck) map:^NSString*(NSMutableArray* mArray) {
+        return ((MACard*)mArray.lastObject).title;
+    }];
 }
 
 #pragma mark - IBAction
@@ -51,5 +62,8 @@
         [self.viewModel textRemoveCard];
     }
     val = value;
+}
+- (IBAction)fAddCard:(id)sender {
+    [self.viewModel fAddCard];
 }
 @end
