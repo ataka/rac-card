@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C04D884F7C7483AB9E8CD80 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A60805C3C12C4796B622B0BE /* libPods.a */; };
 		674B0965197F2DDB003474E7 /* MACard.m in Sources */ = {isa = PBXBuildFile; fileRef = 674B0964197F2DDB003474E7 /* MACard.m */; };
+		674B096819807F83003474E7 /* MAViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674B096719807F83003474E7 /* MAViewModel.m */; };
 		67AEA462197F28D000661501 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67AEA461197F28D000661501 /* main.m */; };
 		67AEA465197F28D000661501 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67AEA464197F28D000661501 /* AppDelegate.m */; };
 		67AEA468197F28D000661501 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67AEA467197F28D000661501 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		674B0963197F2DDB003474E7 /* MACard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACard.h; sourceTree = "<group>"; };
 		674B0964197F2DDB003474E7 /* MACard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACard.m; sourceTree = "<group>"; };
+		674B096619807F83003474E7 /* MAViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAViewModel.h; sourceTree = "<group>"; };
+		674B096719807F83003474E7 /* MAViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAViewModel.m; sourceTree = "<group>"; };
 		67AEA45C197F28D000661501 /* MArraySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MArraySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67AEA460197F28D000661501 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67AEA461197F28D000661501 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				67AEA464197F28D000661501 /* AppDelegate.m */,
 				67AEA466197F28D000661501 /* ViewController.h */,
 				67AEA467197F28D000661501 /* ViewController.m */,
+				674B096619807F83003474E7 /* MAViewModel.h */,
+				674B096719807F83003474E7 /* MAViewModel.m */,
 				674B0963197F2DDB003474E7 /* MACard.h */,
 				674B0964197F2DDB003474E7 /* MACard.m */,
 				67AEA469197F28D000661501 /* Main.storyboard */,
@@ -271,6 +276,7 @@
 			files = (
 				67AEA468197F28D000661501 /* ViewController.m in Sources */,
 				67AEA465197F28D000661501 /* AppDelegate.m in Sources */,
+				674B096819807F83003474E7 /* MAViewModel.m in Sources */,
 				67AEA462197F28D000661501 /* main.m in Sources */,
 				674B0965197F2DDB003474E7 /* MACard.m in Sources */,
 			);

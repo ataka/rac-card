@@ -6,8 +6,10 @@
 //  Copyright (c) 2014年 MasayukiAtaka. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface MACard : NSObject
-
+@property (nonatomic, readonly) NSInteger num;
+@property (nonatomic, readonly, copy) NSString* title;
+- (instancetype)initWithInteger:(NSUInteger)num;
 @end
