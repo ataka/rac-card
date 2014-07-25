@@ -32,10 +32,10 @@ const static NSUInteger deckNum = 53;
 {
     const static NSUInteger suitNum = 13;
     const NSArray* suitSimbol = @[@"♠︎", @"♡", @"♣︎", @"♢"];
-    NSUInteger n = self.num;
-    NSUInteger suit = n / suitNum;
+    NSUInteger suit = _num / suitNum;
+    NSUInteger n = _num % suitNum;
     
-    if (n == deckNum - 1) {
+    if (_num == deckNum - 1) {
         return @"JK";  // Joker
     }
     return [NSString stringWithFormat:@"%@%@", suitSimbol[suit], [self candNum:n]];

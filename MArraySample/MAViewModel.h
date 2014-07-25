@@ -16,4 +16,9 @@
 // Fail NSMutableArray
 @property (nonatomic) NSMutableArray* fDeck;
 - (void)fAddCard;
+// KVO 1
+@property (nonatomic) NSMutableArray* kvo1dummyDeck;
+@property (nonatomic) NSMutableArray* kvo1Deck;
+- (void)kvo1AddCard;
+- (void)kvo1RemoveCard;
 @end
