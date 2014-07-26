@@ -17,6 +17,8 @@
 @property (nonatomic) NSUInteger fNum;
 // KVO 1
 @property (nonatomic) NSUInteger kvo1Num;
+// KVO 2
+@property (nonatomic) NSUInteger kvo2Num;
 @end
 
 @implementation MAViewModel
@@ -37,6 +39,10 @@
         _kvo1dummyDeck = [@[] mutableCopy];
         [self addObserver:self forKeyPath:@"kvo1dummyDeck" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         _kvo1Deck = [self mutableArrayValueForKey:@"kvo1dummyDeck"];
+        // KVO 2
+        _kvo2Num = 0;
+        _kvo2Deck = [@[] mutableCopy];
+        [self addObserver:self forKeyPath:@"kvo2Deck" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
         return self;
     }
     return self;
@@ -87,6 +93,19 @@
 {
     [self.kvo1Deck removeLastObject];
     _kvo1Num--;
+}
+
+#pragma mark - KVO 2
+
+- (void)kvo2AddCard
+{
+    [[self mutableArrayValueForKey:@"kvo2Deck"] addObject:[[MACard alloc] initWithInteger:_kvo2Num++]];
+}
+
+- (void)kvo2RemoveCard
+{
+    [[self mutableArrayValueForKey:@"kvo2Deck"] removeLastObject];
+    _kvo2Num--;
 }
 
 @end

@@ -99,6 +99,9 @@
                                 <state key="normal" title="-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="kvo2RemoveCard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oLZ-QF-xWc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4od-oT-nO8">
                                 <rect key="frame" x="248" y="137" width="30" height="30"/>
@@ -107,6 +110,7 @@
                                 </state>
                                 <connections>
                                     <action selector="fAddCard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NMg-Hb-aMo"/>
+                                    <action selector="kvo2AddCard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NHl-DC-Ece"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="RAC - Deck: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-oC-Mx5">
@@ -188,6 +192,7 @@
                     <connections>
                         <outlet property="fCard" destination="aHO-Jb-tvd" id="I0T-Zb-svM"/>
                         <outlet property="kvo1Card" destination="B3h-nu-DJW" id="YC0-UX-CYW"/>
+                        <outlet property="kvo2Card" destination="oJZ-2S-ZGv" id="qw7-MY-q3w"/>
                         <outlet property="textCount" destination="drr-dx-Iyq" id="Az6-Hs-kr8"/>
                     </connections>
                 </viewController>
