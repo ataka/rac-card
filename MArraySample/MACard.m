@@ -14,7 +14,7 @@ const static NSUInteger deckNum = 53;
 
 - (instancetype)init
 {
-    return [[MACard alloc] initWithInteger:1];
+    return [[MACard alloc] initWithInteger:0];
 }
 
 - (instancetype)initWithInteger:(NSUInteger)num
