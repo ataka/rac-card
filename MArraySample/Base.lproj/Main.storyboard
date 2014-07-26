@@ -133,6 +133,9 @@
                                 <state key="normal" title="-">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="racRemoveCard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q9f-kU-cYj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxt-8g-2XS">
                                 <rect key="frame" x="248" y="175" width="30" height="30"/>
@@ -141,6 +144,7 @@
                                 </state>
                                 <connections>
                                     <action selector="fAddCard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PgK-Im-Nku"/>
+                                    <action selector="racAddCard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hjh-QU-AOL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="KVO1 - Deck: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfH-oe-P8j">
@@ -193,6 +197,7 @@
                         <outlet property="fCard" destination="aHO-Jb-tvd" id="I0T-Zb-svM"/>
                         <outlet property="kvo1Card" destination="B3h-nu-DJW" id="YC0-UX-CYW"/>
                         <outlet property="kvo2Card" destination="oJZ-2S-ZGv" id="qw7-MY-q3w"/>
+                        <outlet property="racCard" destination="d9d-wr-sDX" id="Iwy-qn-5ya"/>
                         <outlet property="textCount" destination="drr-dx-Iyq" id="Az6-Hs-kr8"/>
                     </connections>
                 </viewController>

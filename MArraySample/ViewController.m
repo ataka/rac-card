@@ -30,6 +30,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *kvo2Card;
 - (IBAction)kvo2AddCard:(id)sender;
 - (IBAction)kvo2RemoveCard:(id)sender;
+// RAC
+@property (weak, nonatomic) IBOutlet UILabel *racCard;
+- (IBAction)racAddCard:(id)sender;
+- (IBAction)racRemoveCard:(id)sender;
 
 // ViewModel
 @property (nonatomic) MAViewModel* viewModel;
@@ -52,13 +56,16 @@
 
 - (void)prepareRAC
 {
+    // Text
     RAC(self.textCount, text) = RACObserve(self.viewModel, textCount);
     
+    // Fail NSMutableArray
     RAC(self.fCard, text) = [RACObserve(self.viewModel, fDeck) map:^NSString*(NSMutableArray* mArray) {
         return ((MACard*)mArray.lastObject).title;
     }];
 
     @weakify(self);
+    // KVO 1
     RACSignal* kvo1Signal = [self.viewModel rac_valuesAndChangesForKeyPath:@"kvo1dummyDeck"
                                                                    options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
                                                                   observer:self.viewModel];
@@ -76,6 +83,7 @@
         }
     }];
     
+    // KVO 2
     RACSignal* kvo2Signal = [self.viewModel rac_valuesAndChangesForKeyPath:@"kvo2Deck"
                                                                    options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
                                                                   observer:self.viewModel];
@@ -91,6 +99,15 @@
         } else {
             self.kvo2Card.text = ((MACard*)wholeArray.lastObject).title;
         }
+    }];
+    
+    // RAC
+    RAC(self.racCard, text) = RACObserve(self.viewModel, racCard);
+    [self.viewModel.racCardAdded subscribeNext:^(NSString* card) {
+        self.viewModel.racCard = card.copy;
+    }];
+    [self.viewModel.racCardRemoved subscribeNext:^(NSString* card) {
+        self.viewModel.racCard = card.copy;
     }];
 }
 
@@ -122,5 +139,13 @@
 }
 - (IBAction)kvo2RemoveCard:(id)sender {
     [self.viewModel kvo2RemoveCard];
+}
+
+
+- (IBAction)racAddCard:(id)sender {
+    [self.viewModel racAddCard];
+}
+- (IBAction)racRemoveCard:(id)sender {
+    [self.viewModel racRemoveCard];
 }
 @end

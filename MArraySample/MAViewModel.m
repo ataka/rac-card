@@ -19,6 +19,9 @@
 @property (nonatomic) NSUInteger kvo1Num;
 // KVO 2
 @property (nonatomic) NSUInteger kvo2Num;
+// RAC
+@property (nonatomic) NSUInteger racNum;
+@property (nonatomic) NSMutableArray* racDeck;
 @end
 
 @implementation MAViewModel
@@ -43,6 +46,11 @@
         _kvo2Num = 0;
         _kvo2Deck = [@[] mutableCopy];
         [self addObserver:self forKeyPath:@"kvo2Deck" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        // RAC
+        _racNum = 0;
+        _racDeck = [@[] mutableCopy];
+        self.racCardAdded = [RACSubject subject];
+        self.racCardRemoved = [RACSubject subject];
         return self;
     }
     return self;
@@ -106,6 +114,22 @@
 {
     [[self mutableArrayValueForKey:@"kvo2Deck"] removeLastObject];
     _kvo2Num--;
+}
+
+#pragma mark - RAC
+
+- (void)racAddCard
+{
+    [self.racDeck addObject:[[MACard alloc] initWithInteger:_racNum++]];
+    [self.racCardAdded sendNext:((MACard*)self.racDeck.lastObject).title];
+}
+
+- (void)racRemoveCard
+{
+    [self.racDeck removeLastObject];
+    [self.racCardRemoved sendNext:((MACard*)self.racDeck.lastObject).title];
+    _racNum--;
+    
 }
 
 @end

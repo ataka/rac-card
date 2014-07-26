@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface MAViewModel : NSObject
 // Text
@@ -25,4 +26,10 @@
 @property (nonatomic) NSMutableArray* kvo2Deck;
 - (void)kvo2AddCard;
 - (void)kvo2RemoveCard;
+// RAC
+@property (nonatomic, copy) NSString* racCard;
+@property (nonatomic) RACSubject* racCardAdded;
+@property (nonatomic) RACSubject* racCardRemoved;
+- (void)racAddCard;
+- (void)racRemoveCard;
 @end
