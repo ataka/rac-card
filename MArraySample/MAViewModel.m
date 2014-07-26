@@ -132,4 +132,11 @@
     
 }
 
+#pragma mark - Misc
+
+- (NSString*)cardTitle:(NSArray*)deck
+{
+    return ((MACard *)deck.lastObject).title;
+}
+
 @end

@@ -32,4 +32,6 @@
 @property (nonatomic) RACSubject* racCardRemoved;
 - (void)racAddCard;
 - (void)racRemoveCard;
+// Misc
+- (NSString*)cardTitle:(NSArray*)deck;
 @end

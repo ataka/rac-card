@@ -12,8 +12,6 @@
 
 #import "MAViewModel.h"
 
-#import "MACard.h"
-
 @interface ViewController ()
 // Text
 @property (weak, nonatomic) IBOutlet UILabel *textCount;
@@ -59,12 +57,13 @@
     // Text
     RAC(self.textCount, text) = RACObserve(self.viewModel, textCount);
     
+    @weakify(self);
     // Fail NSMutableArray
     RAC(self.fCard, text) = [RACObserve(self.viewModel, fDeck) map:^NSString*(NSMutableArray* mArray) {
-        return ((MACard*)mArray.lastObject).title;
+        @strongify(self);
+        return [self.viewModel cardTitle:mArray];
     }];
 
-    @weakify(self);
     // KVO 1
     RACSignal* kvo1Signal = [self.viewModel rac_valuesAndChangesForKeyPath:@"kvo1dummyDeck"
                                                                    options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
@@ -77,9 +76,9 @@
         
         @strongify(self);
         if (newArray.count > oldArray.count) {
-            self.kvo1Card.text = ((MACard*)newArray[0]).title;
+            self.kvo1Card.text = [self.viewModel cardTitle:newArray];
         } else {
-            self.kvo1Card.text = ((MACard*)wholeArray.lastObject).title;
+            self.kvo1Card.text = [self.viewModel cardTitle:wholeArray];
         }
     }];
     
@@ -95,9 +94,9 @@
         
         @strongify(self);
         if (newArray.count > oldArray.count) {
-            self.kvo2Card.text = ((MACard*)newArray[0]).title;
+            self.kvo2Card.text = [self.viewModel cardTitle:newArray];
         } else {
-            self.kvo2Card.text = ((MACard*)wholeArray.lastObject).title;
+            self.kvo2Card.text = [self.viewModel cardTitle:wholeArray];
         }
     }];
     
