@@ -99,6 +99,9 @@
 
 - (void)kvo1RemoveCard
 {
+    if (_kvo1Deck.count == 0) {
+        return;
+    }
     [self.kvo1Deck removeLastObject];
     _kvo1Num--;
 }
@@ -112,6 +115,9 @@
 
 - (void)kvo2RemoveCard
 {
+    if (_kvo2Deck.count == 0) {
+        return;
+    }
     [[self mutableArrayValueForKey:@"kvo2Deck"] removeLastObject];
     _kvo2Num--;
 }
@@ -126,6 +132,9 @@
 
 - (void)racRemoveCard
 {
+    if (_racDeck.count == 0) {
+        return;
+    }
     [self.racDeck removeLastObject];
     [self.racCardRemoved sendNext:((MACard*)self.racDeck.lastObject).title];
     _racNum--;
@@ -136,6 +145,9 @@
 
 - (NSString*)cardTitle:(NSArray*)deck
 {
+    if (deck.count == 0) {
+        return @"";
+    }
     return ((MACard *)deck.lastObject).title;
 }
 
